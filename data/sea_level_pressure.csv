@@ -1,0 +1,13 @@
+city,latitude,longitude,mean_sea_level_pressure,,,
+South Australia,-34.93,138.6,1017.926849,,,Adelaide
+Queensland,-27.47,153.03,1016.166027,,,Brisbane
+New South Wales,-35.3,149.13,1017.945753,,,Canberra
+Northern Territory,-12.46,130.84,1013.850822,,,Darwin
+Tasmania,-42.88,147.32,1013.98137,,,Hobart
+Victoria,-37.83,144.98,1017.181204,,,Melbourne
+Western Australia,-31.95,115.86,1015.171096,,,Perth
+Sydney,-33.87,151.21,1017.76137,,,Sydney
+,,,,,,Alice Springs
+,,,,,,Ballarat
+,,,,,,Broome
+,,,,,,Townsville
