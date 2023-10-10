@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "data/mean_temp_monthly.csv"
+    },
+    "params": [
+        {
+            "name": "metric_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "min_temperature",
+                    "max_temperature"
+                ],
+                "labels": [
+                    "Mean Min. Temperature",
+                    "Mean Max. Temperature"
+                ],
+                "name": "Metric Selection: "
+            }
+        }
+    ],
+    "columns": 4,
+    "facet": {
+      "field": "city",
+      "title": "",
+      "type": "nominal",
+      "header": {
+        "labelFontWeight": "bold"
+      }
+    },
+    "spec": {
+      "mark": "rect",
+      "transform": [
+        {"filter": "metric_selection == null || datum.metric == metric_selection"}
+    ],
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "title": "",
+          "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        },
+        "y": {
+          "field": "year",
+          "type": "ordinal",
+          "title": ""
+        },
+        "color": {
+          "field": "temp_value",
+          "type": "quantitative",
+          "title": "Temperature (°C)",
+          "scale": {
+            "domain": [-5, 40],
+            "range": ["blue", "white", "orange", "red", "darkred"]
+          }
+        },
+        "tooltip": [
+          {"field": "month", "type": "ordinal", "title": "Month"},
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "temp_value", "type": "quantitative", "title": "Temperature (°C)"}
+        ]
+      }
+    }
+  }
+  

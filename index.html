@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualising Australian City Weather Patterns</title>
+
+
+      <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+
+  <script src="vega_lite_vis.js"></script>
+
+
+   <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+</head>
+<body>
+    
+<h1>Visualising Australian City Weather Patterns</h1>
+
+
+    <!-- Max/Min & Humidity Plots -->
+    <div class="container">
+        <div class="grid-container">
+            <div class="item1">
+                <h2>Max./Min. Temperatures & Humidity over a Year (Capital Cities)</h2>
+                <p>Day 1: 01-09-2022 to Day 365: 31-08-2023</p>               
+            </div>
+            <div class="item1">
+                <p><b><u>Use the dual sliders</u></b> below to filter the graph by a specific range of humidities. </p>
+            </div>
+            <div class="item2">
+                <div class="grid-item" id="vis1"></div>
+            </div>
+            <div class="item1">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-- Wind Gust Speed & Direction Plots -->
+    <div class="container">
+        <div class="grid-container">
+            <div class="item1">
+                <h2>Maximum Wind Gust Speed & Direction</h2>
+                <p>using cardinal directions</p>
+                <p>measured over a year from Sept 2022 to Aug 2023</p>
+            </div>
+            <div class="item3" id="default_wind"></div>
+            <div class="item4">
+                <p>To view a breakdown of the wind gusts over the course of a year 
+                    <b><u>click on each graph.</u></b> </p>
+            </div>
+            <div class="clickable-vis" id="adel_wind"></div>
+            <div class="clickable-vis" id="bris_wind"></div>
+            <div class="clickable-vis" id="canb_wind"></div>
+            <div class="clickable-vis" id="darw_wind"></div>
+            <div class="clickable-vis" id="hob_wind"></div>
+            <div class="clickable-vis" id="melb_wind"></div>
+            <div class="clickable-vis" id="perth_wind"></div>
+            <div class="clickable-vis" id="syd_wind"></div>
+            <div class="clickable-vis" id="as_wind"></div>
+            <div class="clickable-vis" id="ball_wind"></div>
+            <div class="clickable-vis" id="broome_wind"></div>
+            <div class="clickable-vis" id="towns_wind"></div>
+            <div class="line-graph" id="line_graph_for_adel_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_bris_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_canb_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_darw_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_hob_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_melb_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_perth_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_syd_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_as_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_ball_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_broome_wind" style="display: none;"></div>
+            <div class="line-graph" id="line_graph_for_towns_wind" style="display: none;"></div>
+
+
+            <div class="item1">
+                <button id="backButton">Back</button>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mean Temperature Heat Map -->
+    <div class="container">
+        <div class="grid-container">
+            <div class="item1">
+                <h2>Monthly Mean Temperature (Capital Cities)</h2>
+                <p>2014 - 2022</p>
+            </div>
+            <div class="item1">
+                <p>To switch between minimum and maximum temperatures, <b><u>use the metric selector</u></b> below. </p>
+            </div>
+            <div class="item2">
+                <div class="grid-item" id="vis3"></div>
+            </div>
+            <div class="item1">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cloud Cover & Rainfall Plot -->
+    <div class="container">
+        <div class="grid-container">
+            <div class="item1">
+                <h2>Cloud Cover & Rainfall over a Year</h2>
+                <p>Day 1: 01-09-2022 to Day 365: 31-08-2023</p>
+            </div>
+            <div class="item1">
+                <p><b><u>Use the slider</u></b> below to change the day number. </p>
+            </div>
+            <div class="item2">
+                <div class="grid-item" id="vis2"></div>
+            </div>
+            <div class="item1">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

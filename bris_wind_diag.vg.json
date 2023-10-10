@@ -1,0 +1,134 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Brisbane",
+        "color": "#f58518"
+      },
+      "config": {
+        "view": {
+            "stroke": "transparent"
+        }
+    },
+      "data": {
+        "url": "data/Brisbane_Wind_Data.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {
+            "calculate": "cos(datum.Direction / 180 * PI) * datum.Speed",
+            "as": "x"
+        },
+        {
+            "calculate": "sin(datum.Direction / 180 * PI) * datum.Speed",
+            "as": "y"
+        }
+      ],
+      "layer": [{
+        "mark": {
+            "type": "point",
+            "shape": "diamond",
+            "color": "#f58518",
+            "filled": true
+        },
+        "encoding": {
+            "x": {
+                "field": "x",
+                "type": "quantitative",
+                "axis": {
+                    "ticks": false,
+                    "domain": false,
+                    "grid": false,
+                    "labels": false
+                },
+                "scale": {"domain": [-100, 100]},
+                "title": ""
+            },
+            "y": {
+                "field": "y",
+                "type": "quantitative",
+                "axis": {
+                    "ticks": false,
+                    "domain": false,
+                    "grid": false,
+                    "labels": false
+                },
+                "scale": {"domain": [-100, 100]},
+                "title": ""
+            },
+            "tooltip": [
+                {"field": "direction_cardinal", "type": "nominal", "title": "Direction"},
+                {"field": "Speed", "type": "quantitative", "title": "Speed (km/h)"},
+                {"field": "Date", "type": "temporal", "title": "Date"}
+            ]
+        }
+    },
+    {
+        "data": {
+            "values": [{"origin": 0}]
+        },
+        "mark": {
+            "type": "circle",
+            "color": "#1d1d1d",
+            "size": 50
+        },
+        "encoding": {
+            "x": {"field": "origin", "type": "quantitative"},
+            "y": {"field": "origin", "type": "quantitative"}
+        }
+    },
+    {
+        "mark": {
+            "type": "point",
+            "fill": null,
+            "color": "silver"
+        },
+        "data": {
+          "values": [
+            {"x": 0, "y": 0}
+          ]
+        },
+        "encoding": {
+          "x": {"field": "x", "type": "quantitative"},
+          "y": {"field": "y", "type": "quantitative"},
+          "size": {"value":2827.433},
+          "tooltip": {"value": "Radius = 30"}
+        }
+    },
+    {
+        "mark": {
+            "type": "point",
+            "fill": null,
+            "color": "silver"
+        },
+        "data": {
+          "values": [
+            {"x": 0, "y": 0}
+          ]
+        },
+        "encoding": {
+          "x": {"field": "x", "type": "quantitative"},
+          "y": {"field": "y", "type": "quantitative"},
+          "size": {"value":11309.734},
+          "tooltip": {"value": "Radius = 60"}
+        }
+    },
+    {
+        "mark": {
+            "type": "point",
+            "fill": null,
+            "color": "silver"
+        },
+        "data": {
+          "values": [
+            {"x": 0, "y": 0}
+          ]
+        },
+        "encoding": {
+          "x": {"field": "x", "type": "quantitative"},
+          "y": {"field": "y", "type": "quantitative"},
+          "size": {"value":25446.900},
+          "tooltip": {"value": "Radius = 90"}
+        }
+    }
+]
+}

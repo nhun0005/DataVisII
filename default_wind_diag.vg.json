@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 110,
+  "height": 110,
+  "data": {
+    "values": [
+      {"label": "N", "x": 0, "y": 100},
+      {"label": "S", "x": 0, "y": -100},
+      {"label": "E", "x": 95, "y": 0},
+      {"label": "W", "x": -95, "y": 0},
+      {"label": "30", "x": 0, "y": 26.5},
+      {"label": "60", "x": 0, "y": 57},
+      {"label": "90", "x": 0, "y": 80}
+    ]
+  },
+  "config": {
+    "view": {
+        "stroke": "transparent"
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "text", "fontWeight": "bold", "fontSize": 9.5},
+      "encoding": {
+        "text": {"field": "label", "type": "nominal"},
+        "x": {"field": "x", "type": "quantitative", "axis": null},
+        "y": {"field": "y", "type": "quantitative", "axis": null}
+      }
+    },
+    {
+      "data": {
+        "values": [{"x": 0, "y": 0}]
+      },
+      "mark": {"type": "point", "fill": null},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative", "axis": {
+          "tickCount": 20
+        }},
+        "y": {"field": "y", "type": "quantitative"},
+        "size": {"value": 1000},
+        "color": {"value": "grey"}
+      }
+    },
+    {
+      "data": {
+        "values": [{"x": 0, "y": 0}]
+      },
+      "mark": {"type": "point", "fill": null},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
+        "size": {"value": 4000},
+        "color": {"value": "grey"}
+      }
+    },
+    {
+      "data": {
+        "values": [{"x": 0, "y": 0}]
+      },
+      "mark": {"type": "point", "fill": null},
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
+        "size": {"value": 8000},
+        "color": {"value": "grey"}
+      }
+    },
+    {
+      "data": {
+          "values": [{"origin": 0}]
+      },
+      "mark": {
+          "type": "circle",
+          "color": "#1d1d1d",
+          "size": 20
+      },
+      "encoding": {
+          "x": {"field": "origin", "type": "quantitative"},
+          "y": {"field": "origin", "type": "quantitative"}
+      }
+  }
+  ]
+}

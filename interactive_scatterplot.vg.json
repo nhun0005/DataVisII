@@ -1,0 +1,96 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/int_scatplot_data_new.csv",
+        "format": {"type": "csv"}
+    },
+    "params": [{
+        "name": "city_highlight",
+        "select": {"type": "point", "fields": ["city"]},
+        "bind": "legend"
+    },
+    {
+        "name": "humidity_above",
+        "value": 0,
+        "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "name": "Minimum Humidity: "
+        }
+    },
+    {
+        "name": "humidity_below",
+        "value": 100,
+        "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "name": "Maximum Humidity: "
+        }
+    }],
+    "transform": [{"filter": "datum.humidity >= humidity_above && datum.humidity <= humidity_below"}],
+    "vconcat": [{
+        "width": 700,
+        "height": 250,
+        "mark": {
+            "type": "circle",
+            "filled": true,
+            "tooltip": true
+        },
+        "encoding": {
+            "x": {"field": "day", "type": "quantitative", "scale": {"domain": [0,370]}, "title": "Day Number"},
+            "y": {"field": "max_temp", "type": "quantitative", "title": "Maximum Temperature (C)", "scale": {"domain": [-10,45]}},
+            "size": {"field": "humidity", "type": "quantitative", "scale": {"domain": [1,100], "range": [1, 100]}, "title": "Humidity (%)", "legend": {"labelFontSize": 16, "titleFontSize": 18}},
+            "opacity": {
+                "condition": {"param": "city_highlight", "value": 0.8},
+                "value": 0.1
+            },
+            "color": {"field": "city", "type": "nominal", "title": "City", "legend": {"labelFontSize": 16, "titleFontSize": 18}}
+        }
+    },
+    {
+        "width": 700,
+        "height": 250,
+        "mark": {
+            "type": "circle",
+            "filled": true,
+            "tooltip": true
+        },
+        "encoding": {
+            "x": {"field": "day", "type": "quantitative", "scale": {"domain": [0,370]}, "title": "Day Number"},
+            "y": {"field": "min_temp", "type": "quantitative", "title": "Minimum Temperature (C)", "scale": {"domain": [-10,45]}},
+            "size": {"field": "humidity", "type": "quantitative", "scale": {"range": [1, 100]}, "title": "Humidity (%)"},
+            "opacity": {
+                "condition": {"param": "city_highlight", "value": 0.8},
+                "value": 0.1
+            },
+            "color": {"field": "city", "type": "nominal", "title": "City"}
+        }
+    },
+    {
+        "mark": {
+            "type": "bar",
+            "tooltip": true
+        },
+        "width": 700,
+        "height": 100,
+        "encoding": {
+            "y": {"field": "city", "type": "nominal", "axis": {"labels": false, "ticks": false}, "title": ""},
+            "x": {
+                "aggregate": "count",
+                "type": "quantitative",
+                "axis": {"labels": true, "ticks": false},
+                "title": "Number of Days in Range",
+                "scale": {"domain": [0,365]}
+            },            
+            "color": {"field": "city", "type": "nominal", 
+                "scale": {
+                    "domain": ["Adelaide", "Brisbane", "Canberra", "Darwin", "Hobart", "Melbourne", "Perth", "Sydney"],
+                    "range": ["#4c78a8", "#f58518", "#e45756", "#72b7b2", "#54a24b", "#eeca3b", "#b279a2", "#ff9da6"]
+                }
+            }
+    }}]
+}

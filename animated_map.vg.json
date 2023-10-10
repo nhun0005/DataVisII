@@ -1,0 +1,83 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        }
+    },    
+    "data": {
+            "url": "data/new_map_data.csv",
+            "format": { "type": "csv" }
+    },
+    "transform": [{
+        "filter": "datum.dayNumber == day"
+     }],
+     "params": [{
+        "name": "day",
+        "value": 365,
+        "bind": {
+            "input": "range",
+            "min": 1,
+            "max": 365,
+            "step": 0.5,
+            "name": "Day: "
+        }
+    }],
+    "projection": {
+        "type": "mercator"
+    },
+    "width": 400,
+    "height": 250,
+    "layer": [
+        {
+            "data": {
+                "url": "aus_map.topojson",
+                "format": {
+                   "type": "topojson",
+                        "feature": "ne_110m_admin_0_countries"
+                    }
+                },
+                "mark": {
+                    "type": "geoshape",
+                    "fill": "grey",
+                    "stroke": "white"
+                }
+            },
+            {
+
+                "mark": "circle",
+                "encoding": {
+                    "longitude": {
+                        "field": "longitude",
+                        "type": "quantitative"
+                    },
+                    "latitude": {
+                        "field": "latitude",
+                        "type": "quantitative"
+                    },
+                    "size": {
+                        "field": "cloud_cover_eighth",
+                        "type": "quantitative",
+                        "scale": {
+                            "domain": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+                            "range": [150, 318.75, 487.5, 656.25, 825, 993.75, 1162.5, 1331.25, 1500]
+                        },
+                        "title": "Cloud Cover ( /8 of Sky)",
+                        "legend": {"labelFontSize": 12, "titleFontSize": 14}
+                    },
+                    "color": {
+                        "field": "precipitation",
+                        "type": "quantitative",
+                        "scale": {"scheme": "blues"},
+                        "legend": {"direction": "horizontal", "labelFontSize": 12, "titleFontSize": 14},
+                        "title": "Daily Rain (mm)"
+                    },
+                    "tooltip": [
+                        {"field": "Location", "type": "nominal"},
+                        {"field": "cloud_cover_eighth", "type": "quantitative", "title": "Cloud Cover ( /8 of Sky)"},
+                        {"field": "precipitation", "type": "quantitative", "title": "Daily Rain (mm)"}
+                    ]
+                }
+            }
+        ]
+}

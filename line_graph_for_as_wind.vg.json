@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "data/AliceSprings_Wind_Data.csv"},
+    "width": 300,
+    "mark": "line",
+    "encoding": {
+        "x": {
+            "timeUnit": "yearmonthdate",
+            "field": "Date", 
+            "type": "quantitative",
+            "axis": {
+                "ticks": true,
+                "values": ["Sep 01 2022", "Jan 01 2023", "May 01 2023", "Aug 31 2023"],
+                "title": "Date"
+            }
+        },
+        "y": {
+            "field": "Speed", 
+            "type": "quantitative",
+            "axis": {
+                "title": "Wind Speed (km/h)"
+            }
+            
+        },
+        "color": {"value": "#9d755d"},
+        "tooltip": [
+            {"field": "Speed", "type": "quantitative"},
+            {"field": "Date", "type": "temporal"},
+            {"field": "direction_cardinal", "type": "nominal", "title": "Direction"}
+        ]
+    }
+}
