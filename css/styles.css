@@ -1,27 +1,47 @@
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: white;
+    text-align: justify;
 }
 
 h1 {
-    font-weight: 900;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    text-decoration: underline;
+}
+
+h2 {
+    font-size: x-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 
 h5 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-style: normal;
-
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+/* containers */
 .container {
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
 
+.heading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    /*background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdWdZBYlav_0fvuO2CHleQp26_1b8u5KxzNw&usqp=CAU);} */
+}
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
 .grid-container {
     display: grid;
     justify-content: center;
@@ -30,38 +50,101 @@ h5 {
     row-gap: 10px
 }
 
+/* cards */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    max-width: calc(100% - 40rem);
+    margin: auto;
+  }
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+}
+.w3-card-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    justify-content: center; 
+    padding: 2%;
+}
+
+
+/* items */
 .item1 {
     grid-column-start: 1;
     grid-column-end: 5;
-    text-align-last: center
+    text-align-last: center;
 }
-
 .item2 {
     grid-column-start: 1;
-    grid-column-end: 5
+    grid-column-end: 5;
+    padding-left: 25%;
 }
-
 .item3 {
     grid-column-start: 1;
     grid-column-end: 1; 
 }
-
 .item4 {
     grid-column-start: 2;
     grid-column-end: 5;
+}
+.item5 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    text-align-last: center;
+}
+.item6 {
+    padding-left: 45%;
+}
+.item7 {
+    padding-left: 25%;
+}
+.item8 {
+    padding-left: 15%;
+}
+
+/* item properties */
+.item5 p {
+    margin-top: 0;
+    color: white;
+}
+.item5 h1 {
+    margin-bottom: 0;
+    color: white;
 }
 
 .item1 h2 {
     margin-bottom: 0;
 }
+
 .item1 p {
     margin-top: 0;
     margin-bottom: 0;
 }
-.item1 p:nth-child(3) {
-    font-style: italic;
+.w3-card-2 h2 {
+    margin-bottom: 0;
+}
+.w3-card-2 p {
+    margin-top: 0;
+    text-align: center;
+}
+.w3-card-4 p {
+    font-size: normal;
+}
+.newspaper {
+    column-count: 2;
+    column-gap: 3.5%;
+    text-align: justify;
   }
 
+
+/* vis items*/
 .clickable-vis {
     cursor: pointer;
 }
@@ -70,10 +153,3 @@ h5 {
     display: none;
 }
 
-.pure-g {
-    margin-bottom: 40px;
-}
-
-.small-font {
-    font-size: 14px;
-}
