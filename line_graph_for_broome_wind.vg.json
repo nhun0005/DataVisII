@@ -20,7 +20,6 @@
             "axis": {
                 "title": "Wind Speed (km/h)"
             }
-            
         },
         "color": {"value": "#bab0ac"},
         "tooltip": [

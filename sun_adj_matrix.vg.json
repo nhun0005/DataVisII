@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "data/adj_matrix_data.csv"},
+    "columns": 3,
+    "facet": {
+        "field": "city",
+        "type": "nominal",
+        "header": {
+            "labelFontWeight": "bold",
+            "title": ""
+        }
+    },
+    "spec": {
+        "width": 150,
+        "height": 150,
+        "mark": "rect",
+        "transform": [{
+            "filter": "datum.city !== null && datum.city !== ''"
+          }],          
+        "encoding": {
+            "x": {
+                "field": "day_x1",
+                "type": "ordinal",
+                "axis": {"labelAngle": 45},
+                "title": "Today",
+                "sort": ["low", "low-med", "medium", "med-high", "high"] 
+            },
+            "y": {
+                "field": "day_x2",
+                "type": "ordinal",
+                "title": "Tomorrow",
+                "sort": ["high", "med-high", "medium", "low-med", "low"]
+            },
+            "color": {
+                "field": "count",
+                "type": "quantitative",
+                "scale": {
+                    "type": "sqrt",
+                    "scheme": "yellowgreenblue"
+                },
+                "legend": {
+                    "title": "Transition Count (Sqrt Scale)",
+                    "orient": "bottom"
+                }
+            },
+            "tooltip": [
+                { "field": "day_x1", "title": "Today", "type": "ordinal" },
+                { "field": "day_x2","title": "Tomorrow", "type": "ordinal" },
+                { "field": "count","title": "Transition Count", "type": "quantitative" }
+            ]          
+            
+        }
+    }
+}

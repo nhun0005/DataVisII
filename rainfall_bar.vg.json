@@ -1,0 +1,61 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 200,
+    "data": {"url": "data/new_map_data.csv"},
+    "layer": [{"mark": "bar",
+    "encoding": {
+        "x": {
+            "aggregate": "mean",
+            "field": "precipitation",
+            "type": "quantitative",
+            "title": "Average Daily Rainfall (mm)",
+            "axis": {
+                "labels": false,
+                "ticks": false
+            },
+            "scale": {"domain": [0,6]}
+        },
+        "y": {
+            "field": "Location",
+            "type": "nominal",
+            "title": "",
+            "axis": {
+                "ticks": false,
+                "labels": false
+            }
+        },
+        "color": {
+            "condition": {
+              "test": "datum.Location === 'Darwin'",
+              "value": "darkslategrey"
+            },
+            "value": "slategrey"
+        }
+    }},
+    {
+        "mark": {
+            "type": "text",
+            "align": "right",
+            "color": "white",
+            "dx": -3
+        },
+        "encoding": {
+            "text": {
+                "aggregate": "mean",
+                "field": "precipitation",
+                "type": "quantitative",
+                "format": ".2f"
+            },
+            "x": {
+                "aggregate": "mean",
+                "field": "precipitation"
+            },
+            "y": {
+                "field": "Location",
+                "type": "nominal"
+            }
+        }
+
+    }]
+}

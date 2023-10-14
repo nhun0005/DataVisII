@@ -18,120 +18,472 @@
    <!-- Import pure.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
 
+    <!-- Import W3 Schools-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
 </head>
 <body>
-    
+
+<!-- Title Container-->
+<div class="heading-container">
+<div class="item5">
+<br>
+<br>
+<br>
 <h1>Visualising Australian City Weather Patterns</h1>
+<p>using data sourced from the <a target="_blank" href=http://www.bom.gov.au/climate/data>Bureau of Meteorology</a></p>
+<br>
+<br>
+<br>
+<br>
+</div>
+</div>
+<br>
 
-
-    <!-- Max/Min & Humidity Plots -->
-    <div class="container">
-        <div class="grid-container">
-            <div class="item1">
-                <h2>Max./Min. Temperatures & Humidity over a Year (Capital Cities)</h2>
-                <p>Day 1: 01-09-2022 to Day 365: 31-08-2023</p>               
-            </div>
-            <div class="item1">
-                <p><b><u>Use the dual sliders</u></b> below to filter the graph by a specific range of humidities. </p>
-            </div>
-            <div class="item2">
-                <div class="grid-item" id="vis1"></div>
-            </div>
-            <div class="item1">
-                <hr>
+<!-- Introductory Paragraphs -->
+<div class="row">
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>A Land of Diversity</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                Australia is the world's smallest and driest inhabited continent in the world, and is a land of complete contrast.
+                From the scorched landscapes to the busy urban cities lining the coast, Australia offers a blend of natural beauty 
+                and human innovation. The climate is as diverse as the landscapes, tropical in the north and temperate in the south. 
+                </p>
+            </div>    
+            
+            <header class="w3-container">
+                <h5>Why This Matters</h5>
+            </header>
+            <div class="w3-container">
+            <p>
+                Understanding the weather patterns of Australian cities is crucial for various reasons - 
+                urban planning, tourism, transport, energy sector etc. - this project aims to provide in-depth visual analysis
+                into weather patterns across 12 Australian cities (including the eight capitals), offering valuable insights for the general public.
+            </p>
             </div>
         </div>
     </div>
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>Capital Cities</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                    <span style="color: #4c78a8">Adelaide:</span> has a Mediterranean climate of hot, dry summers and mild, wet winters.
+                    <br>
+                    <span style="color: #f58518">Brisbane:</span> with its tropical climate, Brisbane is warm and sunny year round.
+                    <br>
+                    <span style="color: #e45756">Canberra:</span> the nation's capital experiences a warm summer with cold winters.
+                    <br>
+                    <span style="color: #72b7b2">Darwin:</span> located in the tropical north, Darwin has a tropical climate with a wet and dry season.
+                    <br>
+                    <span style="color: #54a24b">Hobart:</span> has a cool oceanic climate with cold winters and mild summers.
+                    <br>
+                    <span style="color: #eeca3b">Melbourne:</span> famous for culture and sporting events, Melbourne has a temperate climate with variable weather patterns.
+                    <br>
+                    <span style="color: #b279a2">Perth:</span> similar climate to Adelaide but with milder temperature variations.
+                    <br>
+                    <span style="color: #ff9da6">Sydney:</span> known for the Opera House & Harbour Bridge, Sydney experiences a humid subtropical climate of mild summers and winters.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<!-- Interactive Scatterplot-->
+<div class="row">
+<div class="w3-card-2" style="width: 150%;">
+        <h2>Max./Min. Temperatures & Humidity over a Year (Capital Cities)</h2>
+        <p>Day 1: 01-09-2022 to Day 365: 31-08-2023</p>
+        <br>
+        <div class="grid-item">               
+            <ul>
+                <li><b>Use the dual sliders</mark></b> below to filter the graph by a specific range of humidities. </li>
+                <li>Filter by city by <b>selecting it on the legend</mark></b>.</li>
+                <li><b>Use the metric selector</mark></b> to switch between minimum and maximum temperatures.</li>
+            </ul>
+        </div>
+        <br>
+        <div class="grid-item" id="vis1"></div>
+
+    <div class="item1">
+        <hr>
+    </div>
+</div>
+</div>
+
+<br>
+
+<!-- First Plot Paragraphs -->
+<div class="row">
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>Temperature Patterns</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                The comparison between maximum and minimum temperatures for the cities throughout a year reveals that minimum temperatures are less variable (more tightly packed).
+                This indicates that nights tend to be more uniformally cool, whereas daytime temperatures vary more significantly. 
+                The hottest day of the year occurred in Melbourne at 40.5°C on Feb 17 2023. Darwin is consistently the hottest capital city, but it does not get the extreme, dry days that we see in Adelaide, Melbourne and Perth.
+                Canberra is the most variable city as evident by its shape having a stronger curve. The city reached as high as 37.4°C on March 19 2023, but was as low as -7.2°C overnight on June 22 2023.
+            </p>
+            </div>    
+            </div>
+        </div>
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>Humidity Patterns</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                By filtering the humidities between 75% and 100%, Adelaide is the most frequently occurring with 66 days falling in the range - most of which occur over the wet winter season.
+                Interestingly, the days of high humidity are dispersed over all periods of the year excluding summer for all cities but Darwin.
+                Instead, all 51 days in the range for Darwin occur over the hot (dry) season.
+                On the contrary, by filtering the humidities between 0% and 25%, Perth is revealed to be the most frequently occurring with 42 days in this range. 
+                This consists of hot, dry days over summer. Hobart and Sydney each only have two days that fall into this range. 
+                Both Darwin and Brisbane are unique in that a majority of the low humidity days occur over the winter months. 
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
 
 
+<!-- Mean Temperature Heat Map -->
+<div class="row">
+<div class="w3-card-2" style="width: 2400px;">
+    <h2>Monthly Mean Temperature (Capital Cities)</h2>
+    <p>2014 - 2022</p>
+    <div class="grid-item">
+        <p>To switch between minimum and maximum temperatures, <b>use the metric selector</mark></b> below. </p>
+            </div>
+            <div class="grid-item" id="vis3"></div>
+</div>
+</div>
+
+<br>
+
+<!-- Second Plot Paragraphs -->
+<div class="row">
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>Minimum Temperature Trends</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                Darwin is the outlier with consistent high minimum temperatures with Feb 2020 averaging a minmum of 26.8°C. 
+                Hobart has noticeable cooler patches, especially during the winter months of June-August. Looking at this recent history, it averaged a minimum of just 3.5°C in July 2017.
+                Canberra, the nation's capital, clearly has the coldest mean minimum temperatures with 2017 being a particularly cold year nation-wide and an average minimum of just -2.3°C in Canberra in July.
+                One of the reasons it gets so cold is because of its greater elevation above sea level, and the production of wind sweeping through from snow fields on surrounding mountains.
+                </p>
+            </div>    
+            </div>
+        </div>
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>Maximum Temperature Trends</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                Darwin, again, consistently exhibits the highest maximum temperatures across all months and years. The hottest month over the nine year span occurred in Dec 2019 where there was an average maximum of 35.3°C.
+                Adelaide and Canberra have very similat temperature trends, but on a whole Canberra is a tad cooler - with the coldest month being July 2015 with an average maximum of a mere 11.5°C. 
+                The warmest weather year round occurs during Dec-Feb (the summer months of Australia).     
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<br>
+
+<!-- Wind Gust Speed & Direction Plots -->
+<div class="row">
+    <div class="w3-card-2" style="width: 2400px;">
+    <div class="grid-container">
+        <div class="item1">
+            <h2>Maximum Wind Gust Speed & Direction</h2>
+            <p>using cardinal directions</p>
+            <p><i>measured over a year from Sept 2022 to Aug 2023</i></p>
+        </div>
+        <div class="item3" id="default_wind"></div>
+        <div class="item4">
+            <p>To view a breakdown of the wind gusts over the course of a year 
+                <b>click on each graph</b></mark>.</p>
+        </div>
+        <div class="clickable-vis" id="adel_wind"></div>
+        <div class="clickable-vis" id="bris_wind"></div>
+        <div class="clickable-vis" id="canb_wind"></div>
+        <div class="clickable-vis" id="darw_wind"></div>
+        <div class="clickable-vis" id="hob_wind"></div>
+        <div class="clickable-vis" id="melb_wind"></div>
+        <div class="clickable-vis" id="perth_wind"></div>
+        <div class="clickable-vis" id="syd_wind"></div>
+        <div class="clickable-vis" id="as_wind"></div>
+        <div class="clickable-vis" id="ball_wind"></div>
+        <div class="clickable-vis" id="broome_wind"></div>
+        <div class="clickable-vis" id="towns_wind"></div>
+        <div class="line-graph" id="line_graph_for_adel_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_bris_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_canb_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_darw_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_hob_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_melb_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_perth_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_syd_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_as_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_ball_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_broome_wind" style="display: none;"></div>
+        <div class="line-graph" id="line_graph_for_towns_wind" style="display: none;"></div>
+
+
+
+
+        <div class="item1">
+            <button id="backButton">Go Back</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<br>
+
+<!-- Third Plot Paragraphs -->
+<div class="row">
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>Wind Gust Patterns</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                Adelaide exeperience a large range of winds from all directions, particuarly strongest in the south-west direction, reaching a maximum of 106km/h in late Nov 2022. 
+                Brisbane has very little spread with its highest gust only reaching 52km/h. 
+                The most forceful winds of Canberra are from between the north and west directions but regularly have days of sub-20km/h in winter months.
+                Darwin has a major outlier of 137km/h. Being situated in the tropics, weather can be influenced by cyclones and other tropical weather patterns so events like this nearby can lead to a particularly strong wind gust.
+                Hobart sees consistent gusts westerly, both WSW and WNW. It reached a maximum of 117km/h at the end of July 2023, but rarely sees low winds with no days under 20km/h. 
+                Melbourne has a primary wind gust direction of N and NNW and a secondary of W and WSW. 
+                Perth experiences its strongest winds from the south-west direction, and a much smaller frequency from the north-west direction.
+                Similar to Hobart, Sydney rarely has a day that experiences a low wind gust. Strong gusts mainly originate from the west reaching up to 94km/h at the start of summer 2022. 
+                Alice Springs has a variety of winds, encountering very strong winds from all directions.
+                Ballarat has a similar pattern to Melbourne as they share a similar location geographically, but typically produces stronger winds in comparison.
+                Broome also has a reasonable spread of low winds with a few spikes of major wind gusts spread sporadically over the year.
+                Lastly, Townsville is characterised by gusts from the SE and NE without a day under 20km/h nor over 60km/h. 
+                </p>
+            </div>    
+            </div>
+        </div>
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>General Trends</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                    Melbourne, Ballarat and Broome are situated in the south-east of Australia and sit around a similar latitude of the Southern Hemisphere. 
+                    Cities here typically experience strong westerly winds, driven by the temperature difference of the polar regions down south and the warmth of the equator up north.
+                    The lack of significant east winds can be attributed to The Great Dividing Range which stretches along the east coast of Australia, redirecting easterly winds.
+                    <br>
+                    <br>
+                    Brisbane is quite shielded geographically and being located in the sub-tropics provides less pressure differences that drive strong winds in more temperate areas.
+                    <br>
+                    <br>
+                    Perth and Broome are located along the west coast, and Townsville up north but experience a higher prevalence of south-east and south-west winds - which can be accredited to the influence of the subtropical high-pressure belt.
+                    <br>
+                    <br>
+                    Alice Springs is located in the centre of Australia, away from coastal influences. Winds can be influenced by high and low pressure systems from all different directions and the occasional impact of monsoonal type winds from the north, leading to a more even spread of wind speed and direction.
+                    <br>
+                    <br>
+                    Strong north-westerly winds in Canberra are associated with a combination of topographical, geographical and climatic factors. 
+                    In particular, mountain ranges to the west of Canberra and the approach of cold fronts result in stronger north-westerly winds.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<br>
+
+<!-- Cloud Cover & Rainfall Plot -->
+<div class="row">
+<div class="w3-card-2" style="width: 2400px;">
+
+        <div class="item1">
+            <h2>Cloud Cover & Relative Rainfall over a Year</h2>
+            <p>Day 1: 01-09-2022 to Day 365: 31-08-2023</p>
+            <p><b>Use the slider</mark></b> below to change the day number. </p>
+        </div>
+        <br>
+    <div class="grid-container" id="vis2"></div>
+
+<br>
+
+<div class="grid-container">
+    <div id="vis5"></div>
+    <div id="vis4"></div>
+</div>
+</div>
+</div>
+
+<br>
+
+<!-- Fourth Plot Paragraphs -->
+<div class="row">
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>Annual Patterns</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                Day 120-150: Over the course of January, Ballarat had just one day that exceeded 1mm of rain. This may not seem significant as it is mid-summer, but Ballarat received at least some rain on 210 of the 365 days of the year (almost 50 more days than the next highest).
+                <br>
+                <br>
+                Day 125-128: Just over 500mm of rain fell on Broome during this four-day period. Oddly enough, the morning of the 127th day (Jan 6) recorded almost clear skies (1/8) yet got 114mm.
+                <br>  
+                <br>            
+                Day 136-138: Townsville received a lot of rain, accompanied by the maximum amount of cloud cover.  
+                <br>
+                <br>
+                Day 174-181: Darwin collected about 20% of their year's total of rain, with almost complete cloud cover for the week.
+                <br>
+                <br>
+                Day 319-320: Melbourne had just 11 measurements (recorded every 12 hrs) of 0% cloud cover. But from day 319.5-320 was the only 24-hr period that Melbourne recorded complete clear skies.
+                <br>
+                <br>
+                Both Broome and Alice Springs had over 200 days of absolute clear skies (0%), whereas Sydney, Hobart and Melbourne did not exceed 10 days.
+                Broome and Alice Springs were also the only two to have under 100 days of rain, whereas Melbourne and Ballarat the only two to exceed 150 days (the rest falling inside the range).
+                <br>
+
+                
+                </p>
+            </div>    
+            </div>
+        </div>
+    <div class="column">
+        <div class="w3-card-4" style="height:100%;">
+            <header class="w3-container">
+            <h5>Average Trends</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                Melbourne has the highest annual cloud cover at 66% indicating that it is typically the most overcast city from the sample. Ballarat, also in Victoria, is a close second at 65%. Broome (located north-west of Australia) and Alice Springs (in the centre) exhibit the lowest cloud cover annually at just 23% and 28% respectively.
+                Although Broome has little cloud cover, it gets a decent amount of rain - but this average is inflated by a few days of immense rain like when it had 350mm of rain in 48 hours around the start of Jan 2023. Broome actually only had 54 days with at least 0.1mm of rain (by far the lowest tally of the sampled cities).
+                Darwin averages 5.44mm of rain, consistent with its tropical climate and monsoon season - experiencing 390mm of rainfall in a week at the end of summer that year.
+                Townsville, in a similar tropical climate, follows closely with 3.94mm. Again, the data is skewed from a week in mid-Jan where there was a downpour of 320mm over that time.
+                <br>
+                <br>
+                The annual average data proves there is no direct correlation between cloud cover and rainfall. Southern cities like Melbourne, Hobart and Adelaide get a lot of cloud and often a consistent period of rain. But, northern cities like Townsville, Darwin and Broome receive more rain on average aligning with their tropical climate characteristics.
+                Cities with similar latitudes (can be observed with Sydney and Canberra) won't necessarily share weather patterns as geographical features such as mountains or bodies of water may also influence the local climate.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<br>
+
+<!-- Daily Sunshine Adjacency Matrix -->
+<div class="row">
+    <div class="w3-card-2" style="width: 100%;">
+        <h2>Weather Forecast Transitions (Capital Cities)</h2>
+        <p>measured over a year (Sept 2022 to August 2023)</p>
+        <p><i>A count of the number of days of low-high sunshine followed consecutively by another day of low-high sunshine, <br>
+            excluding Canberra and Hobart as data was not available.</i></p>
+        <div class="grid-item">
+            <p></p>
+                </div>
+                <div class="grid-item" id="vis6"></div>
+    </div>
     
-    <!-- Wind Gust Speed & Direction Plots -->
-    <div class="container">
-        <div class="grid-container">
-            <div class="item1">
-                <h2>Maximum Wind Gust Speed & Direction</h2>
-                <p>using cardinal directions</p>
-                <p>measured over a year from Sept 2022 to Aug 2023</p>
-            </div>
-            <div class="item3" id="default_wind"></div>
-            <div class="item4">
-                <p>To view a breakdown of the wind gusts over the course of a year 
-                    <b><u>click on each graph.</u></b> </p>
-            </div>
-            <div class="clickable-vis" id="adel_wind"></div>
-            <div class="clickable-vis" id="bris_wind"></div>
-            <div class="clickable-vis" id="canb_wind"></div>
-            <div class="clickable-vis" id="darw_wind"></div>
-            <div class="clickable-vis" id="hob_wind"></div>
-            <div class="clickable-vis" id="melb_wind"></div>
-            <div class="clickable-vis" id="perth_wind"></div>
-            <div class="clickable-vis" id="syd_wind"></div>
-            <div class="clickable-vis" id="as_wind"></div>
-            <div class="clickable-vis" id="ball_wind"></div>
-            <div class="clickable-vis" id="broome_wind"></div>
-            <div class="clickable-vis" id="towns_wind"></div>
-            <div class="line-graph" id="line_graph_for_adel_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_bris_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_canb_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_darw_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_hob_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_melb_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_perth_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_syd_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_as_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_ball_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_broome_wind" style="display: none;"></div>
-            <div class="line-graph" id="line_graph_for_towns_wind" style="display: none;"></div>
+    </div>
+    
+    <br>
 
-
-            <div class="item1">
-                <button id="backButton">Back</button>
-                <hr>
+<!-- Fifth Plot Paragraphs -->
+<div class="row">
+    <div class="column">
+        <div class="w3-card-4" style="width:100%;">
+            <header class="w3-container">
+            <h5>Next-Day Weather Forecast Insights</h5>
+            </header>
+            <div class="w3-container">
+                <p>
+                    <div class="newspaper">
+                        <b>Measured in Hours of "Daily Brightest Sunshine"</b>
+                        <br>
+                    Low = 0-2 hours <br>
+                    Low-Med = 3-5 hours <br>
+                    Medium = 6-8 hours <br>
+                    Med-High = 9-11 hours <br>
+                    High = 12-14 hours <br> <br>
+                    It is important to note that there is a square-root scale applied to the data to negate a major effect from outliers.
+                    The scale offers a visual guide but the difference in colour may not be as much as it seems, so hover over the squares for specific values. 
+                    Strong correlation along the diagonal suggests a more predictable climate, with fewer extremes from day to day.
+                    <br>
+                    <br>
+                    Darwin stands out with a high frequency of days that transition from Med-High to Med-High. 
+                    This indicates that once Darwin experiences a Med-High day, it's very likely that the next day will be the same.
+                    The maximum for Brisbane and Sydney occurs in the same cell.
+                    <br>
+                    <br> 
+                    Melbourne and Sydney both appear to lack any particular pattern and the spread of data may indicate an unpredicatable climate.
+                    Melbourne is also the only of the cities to primarily have consecutive days of low sunshine. Other than Melbourne,
+                    there is little low-low continuity which could suggest that stretches of cooler days are rarer. 
+                    <br>
+                    <br>
+                    Much of the Perth data is concentrated towards the diagonal indicating a predicatable climate. 
+                    Although a little less strongly correlated, Adelaide seems to exhibit similar trends with stretches of consistent weather. 
+                    <br>
+                    <br>
+                    Overall, no particular dominant trend indicates a diverse weather pattern and unpredictability in next-day forecasts. A strong pattern indicates a consistent weather pattern and more predictability in next-day forecasts.
+                
+                </div>
+                </p>
+            </div>    
             </div>
         </div>
 
+</div>
+
+</div>
+</div>
+
+<br>
+    
+
+<div class="footer-container">
+    <div class="item5">
+    <br>
+    <br>
+    <p></p>
+    <br>
+    </div>
     </div>
 
-    <!-- Mean Temperature Heat Map -->
-    <div class="container">
-        <div class="grid-container">
-            <div class="item1">
-                <h2>Monthly Mean Temperature (Capital Cities)</h2>
-                <p>2014 - 2022</p>
-            </div>
-            <div class="item1">
-                <p>To switch between minimum and maximum temperatures, <b><u>use the metric selector</u></b> below. </p>
-            </div>
-            <div class="item2">
-                <div class="grid-item" id="vis3"></div>
-            </div>
-            <div class="item1">
-                <hr>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cloud Cover & Rainfall Plot -->
-    <div class="container">
-        <div class="grid-container">
-            <div class="item1">
-                <h2>Cloud Cover & Rainfall over a Year</h2>
-                <p>Day 1: 01-09-2022 to Day 365: 31-08-2023</p>
-            </div>
-            <div class="item1">
-                <p><b><u>Use the slider</u></b> below to change the day number. </p>
-            </div>
-            <div class="item2">
-                <div class="grid-item" id="vis2"></div>
-            </div>
-            <div class="item1">
-                <hr>
-            </div>
-        </div>
-    </div>
 
 
 </body>

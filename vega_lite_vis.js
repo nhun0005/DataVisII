@@ -336,6 +336,7 @@ var specVis1 = "interactive_scatterplot.vg.json"
 vegaEmbed("#vis1", specVis1, { "actions": false }).then(function (result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+  
 
 var specVis2 = "animated_map.vg.json"
 vegaEmbed("#vis2", specVis2, { "actions": false }).then(function (result) {
@@ -346,6 +347,22 @@ var specVis3 = "heat_map_mean_temp.vg.json"
 vegaEmbed("#vis3", specVis3, { "actions": false }).then(function (result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+
+var specVis4 = "rainfall_bar.vg.json"
+vegaEmbed("#vis4", specVis4, { "actions": false }).then(function (result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  
+var specVis5 = "cloud_cover_bar.vg.json"
+vegaEmbed("#vis5", specVis5, { "actions": false }).then(function (result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+var specVis6 = "sun_adj_matrix.vg.json"
+vegaEmbed("#vis6", specVis6, { "actions": false }).then(function (result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    
 
 
   // Back button event listener

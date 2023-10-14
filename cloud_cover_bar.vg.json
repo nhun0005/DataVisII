@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 200,
+    "data": {"url": "data/new_map_data.csv"},
+    "transform": [
+        {"calculate": "datum.cloud_cover_eighth/8*100", "as": "cloud_perc"}
+    ],
+    "layer": [{"mark": "bar",
+    "encoding": {
+        "x": {
+            "aggregate": "mean",
+            "field": "cloud_perc",
+            "type": "quantitative",
+            "title": "Average Daily Cloud Cover (% of Sky)",
+            "scale": {"reverse": true, "domain": [0,100]},
+            "axis": {
+                "labels": false,
+                "ticks": false
+            }
+        },
+        "y": {
+            "field": "Location",
+            "type": "nominal",
+            "title": "City"
+        },
+        "color": {
+            "condition": {
+              "test": "datum.Location === 'Melbourne'",
+              "value": "darkslategray"
+            },
+            "value": "slategrey"
+        }
+    }
+    },
+    {
+        "mark": {
+            "type": "text",
+            "align": "right",
+            "dx": 16
+        },
+        "encoding": {
+            "text": {
+                "aggregate": "mean",
+                "field": "cloud_perc",
+                "type": "quantitative",
+                "format": ".0f"
+            },
+            "x": {
+                "aggregate": "mean",
+                "field": "cloud_perc"
+            },
+            "y": {
+                "field": "Location",
+                "type": "nominal"
+            },
+            "color": {
+                "value": "white"
+            }
+        }
+
+    }]
+}

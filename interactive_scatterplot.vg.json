@@ -1,13 +1,29 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-        "url": "data/int_scatplot_data_new.csv",
+        "url": "data/int_scatplot_data_newer.csv",
         "format": {"type": "csv"}
     },
     "params": [{
         "name": "city_highlight",
         "select": {"type": "point", "fields": ["city"]},
         "bind": "legend"
+    },
+    {
+        "name": "metric_selection",
+        "value": "max_temp",
+        "bind": {
+            "input": "select",
+            "options": [
+                "min_temp",
+                "max_temp"
+            ],
+            "labels": [
+                "Minimum Temperature",
+                "Maximum Temperature"
+            ],
+            "name": "Metric Selection: "
+        }
     },
     {
         "name": "humidity_above",
@@ -31,10 +47,13 @@
             "name": "Maximum Humidity: "
         }
     }],
-    "transform": [{"filter": "datum.humidity >= humidity_above && datum.humidity <= humidity_below"}],
+    "transform": [
+        {"filter": "datum.metric == metric_selection"},
+        {"filter": "datum.humidity >= humidity_above && datum.humidity <= humidity_below"}
+    ],  
     "vconcat": [{
-        "width": 700,
-        "height": 250,
+        "width": 600,
+        "height": 200,
         "mark": {
             "type": "circle",
             "filled": true,
@@ -42,7 +61,11 @@
         },
         "encoding": {
             "x": {"field": "day", "type": "quantitative", "scale": {"domain": [0,370]}, "title": "Day Number"},
-            "y": {"field": "max_temp", "type": "quantitative", "title": "Maximum Temperature (C)", "scale": {"domain": [-10,45]}},
+            "y": {
+                "field": "value", 
+                "type": "quantitative",
+                "title": "Temperature (°C)",
+                "scale": {"domain": [-10,45]}},
             "size": {"field": "humidity", "type": "quantitative", "scale": {"domain": [1,100], "range": [1, 100]}, "title": "Humidity (%)", "legend": {"labelFontSize": 16, "titleFontSize": 18}},
             "opacity": {
                 "condition": {"param": "city_highlight", "value": 0.8},
@@ -52,31 +75,12 @@
         }
     },
     {
-        "width": 700,
-        "height": 250,
-        "mark": {
-            "type": "circle",
-            "filled": true,
-            "tooltip": true
-        },
-        "encoding": {
-            "x": {"field": "day", "type": "quantitative", "scale": {"domain": [0,370]}, "title": "Day Number"},
-            "y": {"field": "min_temp", "type": "quantitative", "title": "Minimum Temperature (C)", "scale": {"domain": [-10,45]}},
-            "size": {"field": "humidity", "type": "quantitative", "scale": {"range": [1, 100]}, "title": "Humidity (%)"},
-            "opacity": {
-                "condition": {"param": "city_highlight", "value": 0.8},
-                "value": 0.1
-            },
-            "color": {"field": "city", "type": "nominal", "title": "City"}
-        }
-    },
-    {
         "mark": {
             "type": "bar",
             "tooltip": true
         },
-        "width": 700,
-        "height": 100,
+        "width": 600,
+        "height": 80,
         "encoding": {
             "y": {"field": "city", "type": "nominal", "axis": {"labels": false, "ticks": false}, "title": ""},
             "x": {

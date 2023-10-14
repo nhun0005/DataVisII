@@ -44,6 +44,7 @@
         "y": {
           "field": "year",
           "type": "ordinal",
+          "scale": {"reverse": true},
           "title": ""
         },
         "color": {

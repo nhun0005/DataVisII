@@ -90,7 +90,7 @@
         "encoding": {
           "x": {"field": "x", "type": "quantitative"},
           "y": {"field": "y", "type": "quantitative"},
-          "size": {"value":2827.433},
+          "size": {"value":3500},
           "tooltip": {"value": "Radius = 30"}
         }
     },
@@ -108,7 +108,7 @@
         "encoding": {
           "x": {"field": "x", "type": "quantitative"},
           "y": {"field": "y", "type": "quantitative"},
-          "size": {"value":11309.734},
+          "size": {"value":14500},
           "tooltip": {"value": "Radius = 60"}
         }
     },
@@ -126,7 +126,7 @@
         "encoding": {
           "x": {"field": "x", "type": "quantitative"},
           "y": {"field": "y", "type": "quantitative"},
-          "size": {"value":25446.900},
+          "size": {"value":32500},
           "tooltip": {"value": "Radius = 90"}
         }
     }
