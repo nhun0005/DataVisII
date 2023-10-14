@@ -38,8 +38,10 @@ h5 {
 }
 .footer-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: left;
+    padding-left: 5%;
+    color: white;
+    align-items: left;
     background-color: lightblue;
 }
 .grid-container {
